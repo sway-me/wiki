@@ -51,49 +51,18 @@ $wgEnotifWatchlist = false; # UPO
 $wgEmailAuthentication = true;
 
 ## Database settings
-$wgDBtype = "sqlite";
-$wgDBserver = "";
+$wgDBtype = "mysql";
+$wgDBserver = "localhost";
 $wgDBname = "sway_wiki";
-$wgDBuser = "";
-$wgDBpassword = "";
+$wgDBuser = getenv("DB_USER");
+$wgDBpassword = getenv("DB_PASSWORD");
 
-# SQLite-specific settings
-$wgSQLiteDataDir = "/home/resister/Code/Build/sway/wiki/data";
-$wgObjectCaches[CACHE_DB] = [
-	'class' => SqlBagOStuff::class,
-	'loggroup' => 'SQLBagOStuff',
-	'server' => [
-		'type' => 'sqlite',
-		'dbname' => 'wikicache',
-		'tablePrefix' => '',
-		'variables' => [ 'synchronous' => 'NORMAL' ],
-		'dbDirectory' => $wgSQLiteDataDir,
-		'trxMode' => 'IMMEDIATE',
-		'flags' => 0
-	]
-];
-$wgLocalisationCacheConf['storeServer'] = [
-	'type' => 'sqlite',
-	'dbname' => "{$wgDBname}_l10n_cache",
-	'tablePrefix' => '',
-	'variables' => [ 'synchronous' => 'NORMAL' ],
-	'dbDirectory' => $wgSQLiteDataDir,
-	'trxMode' => 'IMMEDIATE',
-	'flags' => 0
-];
-$wgJobTypeConf['default'] = [
-	'class' => 'JobQueueDB',
-	'claimTTL' => 3600,
-	'server' => [
-		'type' => 'sqlite',
-		'dbname' => "{$wgDBname}_jobqueue",
-		'tablePrefix' => '',
-		'variables' => [ 'synchronous' => 'NORMAL' ],
-		'dbDirectory' => $wgSQLiteDataDir,
-		'trxMode' => 'IMMEDIATE',
-		'flags' => 0
-	]
-];
+
+# MySQL specific settings
+$wgDBprefix = "";
+
+# MySQL table options to use during installation or update
+$wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 
 # Shared database table
 # This has no effect unless $wgSharedDB is also set.
@@ -133,14 +102,14 @@ $wgShellLocale = "en_US.utf8";
 # Site language code, should be one of the list in ./languages/data/Names.php
 $wgLanguageCode = "en";
 
-$wgSecretKey = "7316df1a55eff6c20f63af1176dfcb9ae278acc5dd8abe2961b07e9778e0981e";
+$wgSecretKey = "e92870d6e83d266cb7a357d5b951f869920519ea5161c96a6c06adf373057bab";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "49a8542129b27e62";
+$wgUpgradeKey = "688820391a596b3a";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
