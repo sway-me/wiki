@@ -1,0 +1,105 @@
+stages:
+  - verify
+  - uat
+  - push
+  - release
+
+verify:
+  image: php:7.3-fpm
+  stage: verify
+  script:
+    - echo "minify css"
+    - echo "lint css"
+
+
+.push-before: &push-before
+  - apk add openssh-client git
+  - eval $(ssh-agent -s)
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+  - git config --global user.email $GITLAB_USER_EMAIL
+  - git config --global user.name $GITLAB_USER_NAME
+  - git config --global core.sshCommand 'ssh -o StrictHostKeyChecking=no'
+  - git config pull.rebase false
+  - git remote set-url --push origin git@gitlab.com:$CI_PROJECT_PATH.git
+  - git fetch
+
+push_to_beta:
+  stage: push
+  before_script:
+    - *push-before
+  script:
+    - git checkout beta
+    - git reset --hard origin/development
+    - git clean -f -d
+    - git pull --allow-unrelated-histories
+    - git push -u origin beta
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'beta'
+
+release:
+  stage: release
+  image: docker:stable
+  services:
+    - docker:stable-dind
+  before_script:
+    - apk add npm git
+    - npm i -g  @semantic-release/gitlab semantic-release-docker semantic-release
+    - |
+      echo "
+      branches:
+         - beta
+      plugins:
+        - '@semantic-release/commit-analyzer'
+        - '@semantic-release/release-notes-generator'
+        - '@semantic-release/gitlab'
+        - - 'semantic-release-docker'
+          - name: 'iotresister/test'
+      " > .releaserc.yml
+  script:
+    - docker build -t iotresister/test .
+    - npx semantic-release
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'beta'
+
+.load_performance:
+  stage: uat
+  before_script:
+    - apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 379CE192D401AB61
+    - echo "deb https://dl.bintray.com/loadimpact/deb stable main" | tee -a /etc/apt/sources.list
+    - apt-get update
+    - apt-get install k6
+  script:
+    - ssh sway@$IP -p $PORT k6 run node/perf.js --summary-export=load-performance.json
+  artifacts:
+    reports:
+      load_performance: load-performance.json
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'beta'
+
+
+
+push_to_master:
+  stage: push
+  before_script:
+    - *push-before
+  script:
+    - git checkout master
+    - git reset --hard origin/master
+    - git clean -f -d
+    - git pull --allow-unrelated-histories
+    - git push -u origin master
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'master'
+
+
+prod_deploy:
+  stage: release
+  script:
+    - ssh sway@$IP -p $PORT docker service update --image swayme/wiki prod_wiki
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'beta'
+
+
+
