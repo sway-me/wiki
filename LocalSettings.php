@@ -52,8 +52,8 @@ $wgEmailAuthentication = true;
 
 ## Database settings
 $wgDBtype = "mysql";
-$wgDBserver = "localhost";
-$wgDBname = "sway_wiki";
+$wgDBserver = getenv("DB_SERVER");
+$wgDBname = getenv("DB_NAME");
 $wgDBuser = getenv("DB_USER");
 $wgDBpassword = getenv("DB_PASSWORD");
 

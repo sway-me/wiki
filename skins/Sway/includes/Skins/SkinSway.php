@@ -883,4 +883,4 @@ class SkinSway extends SkinTemplate {
 }
 
 // Setup alias for compatibility with SkinMinervaNeue.
-class_alias( 'SkinMinerva', 'SkinMinervaNeue' );
+class_alias( 'SkinSway', 'SkinMinervaNeue' );
