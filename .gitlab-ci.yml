@@ -44,7 +44,7 @@ release:
   services:
     - docker:stable-dind
   before_script:
-    - apk add npm git
+    - apt update && apt install git npm
     - npm i -g  @semantic-release/gitlab semantic-release-docker semantic-release
     - |
       echo "
@@ -99,7 +99,7 @@ prod_deploy:
   script:
     - ssh sway@$IP -p $PORT docker service update --image swayme/wiki prod_wiki
   rules:
-    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'beta'
+    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'master'
 
 
 
