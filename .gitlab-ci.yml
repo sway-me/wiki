@@ -71,7 +71,7 @@ release:
     - apt-get update
     - apt-get install k6
   script:
-    - ssh sway@$IP -p $PORT k6 run node/perf.js --summary-export=load-performance.json
+    - k6 run node/perf.js --summary-export=load-performance.json
   artifacts:
     reports:
       load_performance: load-performance.json
