@@ -44,7 +44,7 @@ release:
   services:
     - docker:stable-dind
   before_script:
-    - apk add npm git
+    - apt update && apt install npm git
     - npm i -g  @semantic-release/gitlab semantic-release-docker semantic-release
     - |
       echo "
@@ -71,7 +71,7 @@ release:
     - apt-get update
     - apt-get install k6
   script:
-    - ssh sway@$IP -p $PORT k6 run node/perf.js --summary-export=load-performance.json
+    - k6 run node/perf.js --summary-export=load-performance.json
   artifacts:
     reports:
       load_performance: load-performance.json
@@ -99,7 +99,7 @@ prod_deploy:
   script:
     - ssh sway@$IP -p $PORT docker service update --image swayme/wiki prod_wiki
   rules:
-    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'beta'
+    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'master'
 
 
 
