@@ -13,7 +13,7 @@ verify:
 
 
 .push-before: &push-before
-  - apt update && apt install openssh-client git
+  - apt update -y && apt install openssh-client git -y
   - eval $(ssh-agent -s)
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
