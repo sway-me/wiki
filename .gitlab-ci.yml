@@ -40,7 +40,7 @@ push_to_beta:
 
 release:
   stage: release
-  image: docker:stable
+  image: debian:buster-slim
   services:
     - docker:stable-dind
   before_script:
@@ -86,7 +86,7 @@ push_to_master:
     - *push-before
   script:
     - git checkout master
-    - git reset --hard origin/master
+    - git reset --hard origin/beta
     - git clean -f -d
     - git pull --allow-unrelated-histories
     - git push -u origin master
