@@ -47,6 +47,7 @@ release:
     - docker:19.03.12-dind
   before_script:
     - echo $DOCKER_USERNAME
+    - echo $DOCKER_PASSWORD
     - apt update -y && apt install npm git -y || apk add npm git
     - npm i -g  @semantic-release/gitlab semantic-release-docker semantic-release
     - |
