@@ -60,7 +60,7 @@ release:
           - name: 'iotresister/test'
       " > .releaserc.yml
   script:
-    - docker build --quite --tag swayme/wiki .
+    - docker build --quiet --tag swayme/wiki .
     - npx semantic-release
   rules:
     - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'beta'
