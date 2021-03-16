@@ -40,11 +40,13 @@ push_to_beta:
 
 release:
   stage: release
-  image: debian:buster-slim
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  image: docker:19.03.12
   services:
-    - docker:stable-dind
+    - docker:19.03.12-dind
   before_script:
-    - apt update -y  && apt install git npm -y
+    - apk add npm 
     - npm i -g  @semantic-release/gitlab semantic-release-docker semantic-release
     - |
       echo "
