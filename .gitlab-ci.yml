@@ -44,7 +44,7 @@ release:
   services:
     - docker:stable-dind
   before_script:
-    - apt update && apt install git npm
+    - apt update -y  && apt install git npm -y
     - npm i -g  @semantic-release/gitlab semantic-release-docker semantic-release
     - |
       echo "
