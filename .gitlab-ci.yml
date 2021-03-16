@@ -4,7 +4,7 @@ stages:
   - push
   - release
 
-verify:
+.verify:
   image: php:7.3-fpm
   stage: verify
   script:
@@ -25,7 +25,7 @@ verify:
   - git remote set-url --push origin git@gitlab.com:$CI_PROJECT_PATH.git
   - git fetch
 
-push_to_beta:
+.push_to_beta:
   stage: push
   before_script:
     - *push-before
@@ -46,6 +46,7 @@ release:
   services:
     - docker:19.03.12-dind
   before_script:
+    - echo $DOCKER_USERNAME
     - apt update -y && apt install npm git -y || apk add npm git
     - npm i -g  @semantic-release/gitlab semantic-release-docker semantic-release
     - |
