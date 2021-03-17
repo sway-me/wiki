@@ -50,13 +50,18 @@ $wgEnotifUserTalk = false; # UPO
 $wgEnotifWatchlist = false; # UPO
 $wgEmailAuthentication = true;
 
+## Debug Settings
+$wgShowExceptionDetails = getenv("DEBUG");
+$wgShowDBErrorBacktrace = getenv("DEBUG");
+$wgShowSQLErrors = getenv("DEBUG");
+
+
 ## Database settings
+$wgDBname = "wiki";
+$wgDBuser = "swayme";
 $wgDBtype = "mysql";
 $wgDBserver = getenv("DB_SERVER");
-$wgDBname = getenv("DB_NAME");
-$wgDBuser = getenv("DB_USER");
 $wgDBpassword = getenv("DB_PASSWORD");
-
 
 # MySQL specific settings
 $wgDBprefix = "";
@@ -74,12 +79,12 @@ $wgMemCachedServers = [];
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
-$wgEnableUploads = true;
+$wgEnableUploads = false;
 $wgUseImageMagick = true;
 $wgImageMagickConvertCommand = "/usr/bin/convert";
 
 # InstantCommons allows wiki to use images from https://commons.wikimedia.org
-$wgUseInstantCommons = true;
+$wgUseInstantCommons = false;
 
 # Periodically send a pingback to https://www.mediawiki.org/ with basic data
 # about this MediaWiki instance. The Wikimedia Foundation shares this data
@@ -102,14 +107,14 @@ $wgShellLocale = "en_US.utf8";
 # Site language code, should be one of the list in ./languages/data/Names.php
 $wgLanguageCode = "en";
 
-$wgSecretKey = "e92870d6e83d266cb7a357d5b951f869920519ea5161c96a6c06adf373057bab";
+$wgSecretKey = "7bc8c7650c7767f92bde0125b9c4b5c84d6d1a5d9a4c5a5d8f1358263cf1089f";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "688820391a596b3a";
+$wgUpgradeKey = "7451df853364cef5";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation

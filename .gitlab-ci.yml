@@ -95,7 +95,6 @@ release:
   tag:
     - perf
 
-
 push_to_master:
   stage: push
   before_script:
