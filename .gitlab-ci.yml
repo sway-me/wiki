@@ -59,10 +59,11 @@ release:
   before_script:
     - *auth-ssh
     - apt-get install npm -qy || apk add npm
-#    - npm i --quiet -g  @semantic-release/gitlab semantic-release-docker semantic-release
+    - npm i --quiet -g  @semantic-release/gitlab semantic-release-docker semantic-release
     - |
       echo "
       branches:
+        -  master
          - name: beta
            prerelease: true
       plugins:
