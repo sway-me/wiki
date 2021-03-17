@@ -1,4 +1,4 @@
-.auth-ssh: &auth-ssh 
+.auth-ssh: &auth-ssh
   - apt-get update -qy && apt-get install openssh-client git -qy || apk add openssh-client git
   - eval $(ssh-agent -s)
   - mkdir -p ~/.ssh
@@ -6,7 +6,7 @@
   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
 
 .push-before: &push-before
-# TODO: DRY this
+  # TODO: add auth-ssh here
   - apt update -y && apt install openssh-client git -y || apk add openssh-client git
   - eval $(ssh-agent -s)
   - mkdir -p ~/.ssh
