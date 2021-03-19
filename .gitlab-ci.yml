@@ -1,5 +1,4 @@
 .push-before: &push-before
-  # TODO: add auth-ssh here
   - apt-get update -qy && apt-get install openssh-client git -qy || apk add openssh-client git
   - eval $(ssh-agent -s)
   - mkdir -p ~/.ssh
@@ -40,7 +39,7 @@ push_to_beta:
     - git pull --allow-unrelated-histories
     - git push -u origin beta
   rules:
-    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'beta'
+    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'development'
 
 release:
   stage: release
@@ -71,9 +70,10 @@ release:
   script:
     - docker build --quiet --tag swayme/wiki .
     - npx semantic-release
-    - ssh -o StrictHostKeyChecking=no sway@$IP -p $PORT  docker stack deploy -c infrastructure/wiki/beta.yml beta
+#    - ssh -o StrictHostKeyChecking=no sway@$IP -p $PORT  docker stack deploy -c infrastructure/wiki/beta.yml beta
+    - ssh -o StrictHostKeyChecking=no sway@$IP -p $PORT docker service update --image swayme/wiki  beta_wiki
   rules:
-    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'beta'
+    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'development'
 
 .load_performance:
   stage: uat
