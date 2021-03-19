@@ -1,13 +1,6 @@
-.auth-ssh: &auth-ssh
-  - apt-get update -qy && apt-get install openssh-client git -qy || apk add openssh-client git
-  - eval $(ssh-agent -s)
-  - mkdir -p ~/.ssh
-  - chmod 700 ~/.ssh
-  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-
 .push-before: &push-before
   # TODO: add auth-ssh here
-  - apt update -y && apt install openssh-client git -y || apk add openssh-client git
+  - apt-get update -qy && apt-get install openssh-client git -qy || apk add openssh-client git
   - eval $(ssh-agent -s)
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
@@ -57,7 +50,9 @@ release:
   services:
     - docker:19.03.12-dind
   before_script:
-    - *auth-ssh
+    - *push-before
+    - git checkout beta
+    - git pull
     - apt-get install npm -qy || apk add npm
     - npm i --quiet -g  @semantic-release/gitlab semantic-release-docker semantic-release
     - |

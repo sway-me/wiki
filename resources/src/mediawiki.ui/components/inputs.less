@@ -17,42 +17,53 @@
 // <input class="mw-ui-input" placeholder="Enter your name">
 // <textarea class="mw-ui-input">Text here</textarea>
 .mw-ui-input {
-	background-color: @background-color-base;
-	color: @color-base--emphasized;
-	.box-sizing( border-box );
-	display: block;
-	width: 100%;
-	border: @border-base;
-	border-radius: @border-radius-base;
-	padding: 6px 8px;
-	// necessary for smooth transition
-	box-shadow: inset 0 0 0 1px #fff;
-	font-family: inherit;
-	font-size: inherit;
-	line-height: 1.28571429em;
-	vertical-align: middle;
-
-	// Normalize & style placeholder text, see T139034
-	.mixin-placeholder( {
-		color: @color-placeholder;
-		opacity: 1;
-	} );
+  	caret-color: var(--dark-blue);
+	outline: none;
+	border: none;
+	border-radius: 3px;
+	padding: 0.5rem;
+	background: transparent;
+	box-shadow: var(--light-shadow);
+	transition: var(--transition);
+	-webkit-appearance: none;
+	color: slategray;
+	//background-color: @background-color-base;
+	//color: slategray;
+	//.box-sizing( border-box );
+	//display: block;
+	//width: 100%;
+	//border: @border-base;
+	//border-radius: @border-radius-base;
+	//padding: 6px 8px;
+	//// necessary for smooth transition
+	//box-shadow: inset 0 0 0 1px #fff;
+	//font-family: inherit;
+	//font-size: inherit;
+	//line-height: 1.28571429em;
+	//vertical-align: middle;
+	//
+	//// Normalize & style placeholder text, see T139034
+	//.mixin-placeholder( {
+	//	color: @color-placeholder;
+	//	opacity: 1;
+	//} );
 
 	// Firefox: Remove red outline when `required` attribute set and invalid content.
 	// See https://developer.mozilla.org/en-US/docs/Web/CSS/:invalid
 	// This should come before `:focus` so latter rules take preference.
-	&:invalid {
-		box-shadow: none;
-	}
+	//&:invalid {
+	//	box-shadow: none;
+	//}
 
 	&:hover {
-		border-color: @colorGray7;
+		//border-color: @colorGray7;
+      	//box-shadow: var(--heavy-shadow);
 	}
 
 	&:focus {
-		border-color: @border-color-base--focus;
-		box-shadow: @box-shadow-base--focus;
-		outline: 0;
+		//border-color: @border-color-base--focus;
+		//box-shadow: var(--heavy-shadow);
+		//outline: 0;
 	}
 
 	// `:not()` is used exclusively for `transition`s as both are not supported by IE < 9.

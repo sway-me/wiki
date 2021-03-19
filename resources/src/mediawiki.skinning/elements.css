@@ -11,7 +11,7 @@
 /* Links */
 a {
 	text-decoration: none;
-	color: #0645ad;
+	color: var(--dark-blue);
 	background: none;
 }
 
@@ -20,7 +20,7 @@ a:not( [ href ] ) {
 }
 
 a:visited {
-	color: #0b0080;
+	color: slategray;
 }
 
 a:active {
@@ -46,7 +46,7 @@ a.stub {
 
 a.new,
 #p-personal a.new {
-	color: #d33;
+	color: var(--dark-red);
 }
 
 /* self links */
@@ -68,18 +68,18 @@ a.mw-selflink:visited {
 
 a.new:visited,
 #p-personal a.new:visited {
-	color: #a55858;
+	color: var(--light-gray);
 }
 
 /* Interwiki & External links */
 .mw-parser-output a.extiw,
 .mw-parser-output a.external {
-	color: #36b;
+	color: var(--dark-blue);
 }
 
 .mw-parser-output a.extiw:visited,
 .mw-parser-output a.external:visited {
-	color: #636; /* See T5112. */
+	color: var(--light-gray); /* See T5112. */
 }
 
 .mw-parser-output a.extiw:active,
@@ -111,7 +111,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: #000;
+	color: var(--light-gray);
 	margin: 0;
 	padding-top: 0.5em;
 	padding-bottom: 0.17em;
@@ -121,7 +121,7 @@ h6 {
 h1,
 h2 {
 	margin-bottom: 0.6em;
-	border-bottom: 1px solid #a2a9b1;
+	border-bottom: 1px solid var(--gray);
 }
 
 h3,
