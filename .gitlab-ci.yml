@@ -48,6 +48,7 @@ push_to_beta:
           - name: 'swayme/wiki'
       " > .releaserc.yml
   script:
+    - git checkout beta
     - git reset --hard origin/development
     - git clean -f -d
     - git pull --allow-unrelated-histories
