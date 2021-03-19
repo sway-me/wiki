@@ -81,8 +81,8 @@
 			width: @size-input-binary;
 			height: @size-input-binary;
 			margin-top: -( @size-input-binary / 2 );
-			border: 1px solid @colorGray7;
 			border-radius: @border-radius-base;
+          	box-shadow: var(--light-shadow);
 		}
 
 		// Apply a checkmark on the pseudo `:before` element when the input is checked
@@ -93,54 +93,26 @@
 
 		&:enabled {
 			cursor: pointer;
-
 			& + label {
 				cursor: pointer;
 			}
 
-			& + label:before {
-				cursor: pointer;
-				.transition( ~'background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms' );
-			}
-
-			// `:focus` has to come first, otherwise a specificity race with `:hover:focus` etc is necessary
-			&:focus + label:before {
-				border-color: @border-color-base--focus;
-				box-shadow: @box-shadow-base--focus;
-			}
-
-			&:hover + label:before {
-				// FIXME: Replace with WikimediaUI Base `@border-color*` var when available.
-				border-color: @color-primary--hover;
-			}
-
 			&:active + label:before {
-				background-color: @background-color-input-binary--active;
-				border-color: @border-color-input-binary--active;
-				box-shadow: @box-shadow-input-binary--active;
+				background-color: var(--dark-blue);
 			}
 
 			&:checked {
 				& + label:before {
-					background-color: @background-color-input-binary--checked;
-					border-color: @border-color-input-binary--checked;
+					background-color: var(--dark-blue);
 				}
 
 				&:focus + label:before {
-					background-color: @background-color-input-binary--checked;
-					border-color: @border-color-input-binary--checked;
-					box-shadow: @box-shadow-primary--focus;
+					background-color: var(--dark-blue);
 				}
 
-				&:hover + label:before {
-					// FIXME: Replace with WikimediaUI Base vars when available.
-					background-color: @color-primary--hover;
-					border-color: @color-primary--hover;
-				}
 
 				&:active + label:before {
-					background-color: @background-color-input-binary--active;
-					border-color: @border-color-input-binary--active;
+                  	background-color: var(--dark-blue);
 				}
 			}
 		}

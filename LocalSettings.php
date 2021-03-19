@@ -19,7 +19,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = "Sway";
+$wgSitename = "S W A Y";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -29,22 +29,31 @@ $wgSitename = "Sway";
 $wgScriptPath = "";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://localhost:8000";
+$wgServer = getenv("FQ_URL");
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
 
 ## The URL paths to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
-$wgLogos = [ '1x' => "$wgResourceBasePath/resources/assets/wiki.png" ];
-
+$wgLogos = [ 'svg' => "https://minio.swayme.xyz/shared/logo.svg" ];
+$wgFavicon = "https://minio.swayme.xyz/shared/logo.svg";
 ## UPO means: this is also a user preference option
 
-$wgEnableEmail = false;
+$wgEnableEmail = true;
 $wgEnableUserEmail = true; # UPO
 
 $wgEmergencyContact = "apache@🌻.invalid";
-$wgPasswordSender = "apache@🌻.invalid";
+$wgPasswordSender = "info@swayme.xyz";
+
+$wgSMTP = [
+    'host' => 'ssl://mail.privateemail.com', // outbox server of the email account
+    'IDHost' => 'swayme.xyz',
+    'port' => 465,
+    'username' => 'info@swayme.xyz', // user of the email account
+    'password' => getenv("EMAIL_PASSWORD"), // app password of the email account
+    'auth' => true
+];
 
 $wgEnotifUserTalk = false; # UPO
 $wgEnotifWatchlist = false; # UPO
@@ -57,11 +66,11 @@ $wgShowSQLErrors = getenv("DEBUG");
 
 
 ## Database settings
-$wgDBtype = "mysql";
-$wgDBserver = "localhost";
+$wgDBname = getenv("DB_NAME");
 $wgDBpassword = getenv("DB_PASSWORD");
-$wgDBname = "wiki";
+$wgDBserver = getenv("DB_SERVER");
 $wgDBuser = "swayme";
+$wgDBtype = "mysql";
 
 
 # MySQL specific settings
@@ -75,12 +84,12 @@ $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 $wgSharedTables[] = "actor";
 
 ## Shared memory settings
-$wgMainCacheType = CACHE_NONE;
+$wgMainCacheType = CACHE_ACCEL;
 $wgMemCachedServers = [];
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
-$wgEnableUploads = true;
+$wgEnableUploads = false;
 $wgUseImageMagick = true;
 $wgImageMagickConvertCommand = "/usr/bin/convert";
 
@@ -123,18 +132,18 @@ $wgUpgradeKey = "688820391a596b3a";
 $wgRightsPage = ""; # Set to the title of a wiki page that describes your license/copyright
 $wgRightsUrl = "https://www.gnu.org/copyleft/fdl.html";
 $wgRightsText = "GNU Free Documentation License 1.3 or later";
-$wgRightsIcon = "$wgResourceBasePath/resources/assets/licenses/gnu-fdl.png";
+$wgRightsIcon = "$wgResourceBasePath/resources/assets/licenses/gnu-fdl.svg";
 
 # Path to the GNU diff3 utility. Used for conflict resolution.
 $wgDiff3 = "/usr/bin/diff3";
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'vector', 'monobook':
-$wgDefaultSkin = "sway";
+$wgDefaultSkin = "vector";
 
 # Enabled skins.
 # The following skins were automatically enabled:
-wfLoadSkin( 'Sway' );
+wfLoadSkin( 'Vector' );
 
 
 # End of automatically generated settings.

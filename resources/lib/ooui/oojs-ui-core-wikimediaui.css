@@ -144,15 +144,15 @@
   padding-left: 2.14285714em;
 }
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
-  color: #202122;
+  color: slategray;
 }
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover {
   background-color: rgba(0, 24, 73, 0.02745098);
-  color: #000;
+  color: slategray;
 }
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active {
   background-color: rgba(0, 36, 73, 0.08235294);
-  color: #404244;
+  color: slategray;
 }
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled.oo-ui-iconElement > .oo-ui-buttonElement-button:focus,
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled.oo-ui-labelElement > .oo-ui-buttonElement-button:focus {
@@ -177,7 +177,7 @@
 }
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled.oo-ui-buttonElement-pressed > input.oo-ui-buttonElement-button,
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button:active {
-  color: #000;
+  color: slategray;
   border-color: transparent;
   box-shadow: none;
 }
@@ -194,10 +194,10 @@
   box-shadow: none;
 }
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button {
-  color: #d33;
+  color: var(--dark-red);
 }
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button:hover {
-  color: #ff4242;
+  color: var(--dark-red);
 }
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button:active,
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive > .oo-ui-buttonElement-button:active:focus,
@@ -259,14 +259,23 @@
   background-color: #919fb9;
 }
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
-  background-color: #f8f9fa;
-  color: #202122;
-  border-color: #a2a9b1;
+  /*background-color: red;*/
+  /*color: #202122;*/
+  /*border-color: #a2a9b1;*/
+  border: 3px solid var(--dark-blue);
+  background: var(--pink-grad);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 4px;
+  box-shadow: var(--light-shadow);
+  transition: var(--transition);
 }
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover {
-  background-color: #fff;
-  color: #404244;
-  border-color: #a2a9b1;
+  box-shadow: var(--heavy-shadow);
+  /*background-color: #fff;*/
+  /*color: #404244;*/
+  /*border-color: #a2a9b1;*/
 }
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover > .oo-ui-iconElement-icon:not( .oo-ui-image-invert ),
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover > .oo-ui-indicatorElement-indicator:not( .oo-ui-image-invert ) {
@@ -339,13 +348,22 @@
   outline: 1px solid transparent;
 }
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
-  color: #fff;
-  background-color: #36c;
-  border-color: #36c;
+  /*color: #fff;*/
+  /*background-color: red;*/
+  /*border-color: #36c;*/
+  border: 3px solid var(--dark-blue);
+  background: var(--pink-grad);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 4px;
+  box-shadow: var(--light-shadow);
+  transition: var(--transition);
 }
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:hover {
-  background-color: #447ff5;
-  border-color: #447ff5;
+  /*background-color: #447ff5;*/
+  box-shadow: var(--heavy-shadow);
+  /*border-color: #447ff5;*/
 }
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:active,
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:active:focus,
@@ -1319,10 +1337,8 @@ body:not( :-moz-handler-blocked ) .oo-ui-fieldsetLayout {
   left: 0;
   width: 1.42857143em;
   height: 1.42857143em;
-  border-color: #72777d;
-  border-style: solid;
-  border-radius: 2px;
-  border-width: 0;
+  box-shadow: var(--light-shadow);
+  border-radius: 3px;
 }
 :root .oo-ui-checkboxInputWidget [type='checkbox'] + span {
   border-width: 1px;
@@ -1354,40 +1370,37 @@ body:not( :-moz-handler-blocked ) .oo-ui-fieldsetLayout {
   transition: background-color 100ms, border-color 100ms, box-shadow 100ms;
 }
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:focus + span {
-  border-color: #36c;
-  box-shadow: inset 0 0 0 1px #36c;
-  outline: 1px solid transparent;
+  border-color: var(--dark-blue);
+  /*box-shadow: inset 0 0 0 1px #36c;*/
+  /*outline: 1px solid transparent;*/
 }
-.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:hover + span {
-  border-color: #447ff5;
-}
-.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:active + span {
-  background-color: #2a4b8d;
-  border-color: #2a4b8d;
-  box-shadow: inset 0 0 0 1px #2a4b8d;
-}
+/*.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:hover + span {*/
+/*  border-color: #447ff5;*/
+/*}*/
+/*.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:active + span {*/
+/*  background-color: #2a4b8d;*/
+/*  border-color: #2a4b8d;*/
+/*  box-shadow: inset 0 0 0 1px #2a4b8d;*/
+/*}*/
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:checked + span,
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:indeterminate + span {
-  background-color: #36c;
-  border-color: #36c;
+  background-color: var(--dark-blue);
 }
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:checked:focus + span,
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:indeterminate:focus + span {
-  background-color: #36c;
-  border-color: #36c;
-  box-shadow: inset 0 0 0 1px #36c, inset 0 0 0 2px #fff;
+  background-color: var(--dark-blue);
 }
-.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:checked:hover + span,
-.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:indeterminate:hover + span {
-  background-color: #447ff5;
-  border-color: #447ff5;
-}
-.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:checked:active + span,
-.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:indeterminate:active + span {
-  background-color: #2a4b8d;
-  border-color: #2a4b8d;
-  box-shadow: inset 0 0 0 1px #2a4b8d;
-}
+/*.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:checked:hover + span,*/
+/*.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:indeterminate:hover + span {*/
+/*  background-color: var(--dark-blue);*/
+/*  !*border-color: #447ff5;*!*/
+/*}*/
+/*.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:checked:active + span,*/
+/*.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:indeterminate:active + span {*/
+/*  background-color: #2a4b8d;*/
+/*  border-color: #2a4b8d;*/
+/*  box-shadow: inset 0 0 0 1px #2a4b8d;*/
+/*}*/
 
 .oo-ui-checkboxMultiselectInputWidget .oo-ui-fieldLayout {
   margin-top: 0;
@@ -1673,10 +1686,13 @@ body:not( :-moz-handler-blocked ) .oo-ui-fieldsetLayout {
   user-select: none;
 }
 .oo-ui-textInputWidget .oo-ui-inputWidget-input {
-  background-color: #fff;
-  color: #000;
+  background-color: transparent;
+  color: slategray;
   margin: 0;
-  border: 1px solid #a2a9b1;
+  /*border: 1px solid ;*/
+  border: none;
+  outline: none;
+  box-shadow: var(--light-shadow);
   border-radius: 2px;
   padding: 6px 8px;
   font-size: inherit;
@@ -1720,7 +1736,7 @@ body:not( :-moz-handler-blocked ) .oo-ui-fieldsetLayout {
   padding-left: 2.42857143em;
 }
 .oo-ui-textInputWidget.oo-ui-widget-enabled .oo-ui-inputWidget-input {
-  box-shadow: inset 0 0 0 1px transparent;
+  box-shadow: var(--light-shadow);
   -webkit-transition: border-color 250ms, box-shadow 250ms;
   -moz-transition: border-color 250ms, box-shadow 250ms;
   transition: border-color 250ms, box-shadow 250ms;
@@ -1747,8 +1763,8 @@ body:not( :-moz-handler-blocked ) .oo-ui-fieldsetLayout {
 }
 .oo-ui-textInputWidget.oo-ui-widget-enabled .oo-ui-inputWidget-input:focus {
   outline: 0;
-  border-color: #36c;
-  box-shadow: inset 0 0 0 1px #36c;
+  /*border-color: #36c;*/
+  box-shadow: var(--heavy-shadow);
 }
 .oo-ui-textInputWidget.oo-ui-widget-enabled .oo-ui-inputWidget-input:focus ~ .oo-ui-iconElement-icon,
 .oo-ui-textInputWidget.oo-ui-widget-enabled .oo-ui-inputWidget-input:focus ~ .oo-ui-indicatorElement-indicator {

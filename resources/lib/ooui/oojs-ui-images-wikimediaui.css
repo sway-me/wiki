@@ -3298,10 +3298,7 @@
   background-image: url('themes/wikimediaui/images/icons/pause-progressive.png');
   background-image: linear-gradient(transparent, transparent), /* @embed */ url('themes/wikimediaui/images/icons/pause-progressive.svg');
 }
-.oo-ui-icon-play {
-  background-image: url('themes/wikimediaui/images/icons/play.png');
-  background-image: linear-gradient(transparent, transparent), /* @embed */ url('themes/wikimediaui/images/icons/play.svg');
-}
+
 .oo-ui-image-invert.oo-ui-icon-play {
   background-image: url('themes/wikimediaui/images/icons/play-invert.png');
   background-image: linear-gradient(transparent, transparent), /* @embed */ url('themes/wikimediaui/images/icons/play-invert.svg');
