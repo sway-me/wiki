@@ -35,7 +35,7 @@ push_to_beta:
     - apt-get install npm -qy || apk add npm
     - npm i --quiet -g  @semantic-release/gitlab semantic-release-docker semantic-release
   script:
-    - git checkout beta
+    - git checkout development
     - git reset --hard origin/development
     - git clean -f -d
     - git pull --allow-unrelated-histories
