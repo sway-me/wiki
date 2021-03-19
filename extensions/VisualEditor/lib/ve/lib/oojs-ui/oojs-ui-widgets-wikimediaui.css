@@ -939,7 +939,7 @@
   line-height: 1.61538462em;
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled {
-  color: #202122;
+  color: slategray;
   -webkit-transition: background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms;
   -moz-transition: background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms;
   transition: background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms;
