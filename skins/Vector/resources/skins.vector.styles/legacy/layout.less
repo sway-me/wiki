@@ -4,6 +4,10 @@
 @import 'mediawiki.mixins.less';
 @import '../../../variables.less';
 
+:root {
+	--offset: 70px
+}
+
 body {
 	background-color: @background-color-secondary;
 	overflow-y: scroll;
@@ -16,6 +20,8 @@ body {
 	color: @color-base;
 	direction: ltr;
 	padding: @padding-content;
+	position: relative;
+	top: 10px;
 }
 
 #p-personal {
@@ -85,7 +91,7 @@ body {
 
 #mw-head {
 	position: absolute;
-	top: 0;
+	top: var(--offset);
 	right: 0;
 	width: 100%;
 }
@@ -110,7 +116,7 @@ body {
 
 #mw-panel {
 	position: absolute;
-	top: 0;
+	top: var(--offset);
 	width: 10em;
 	left: 0;
 }

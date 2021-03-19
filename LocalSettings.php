@@ -36,7 +36,7 @@ $wgResourceBasePath = $wgScriptPath;
 
 ## The URL paths to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
-$wgLogos = [ 'svg' => "https://minio.swayme.xyz/shared/logo.svg" ];
+//$wgLogos = [ 'svg' => "./resources/assets/blank.svg" ];
 $wgFavicon = "https://minio.swayme.xyz/shared/logo.svg";
 ## UPO means: this is also a user preference option
 
@@ -150,6 +150,10 @@ if (preg_match("/(mobile|webos|opera mini|android|blackberry|tablet)/i", $_SERVE
 } else{
     $wgDefaultSkin = 'vector';
 }
+
+$wgEnableParserCache = false; // deprecated method
+$wgParserCacheType = CACHE_NONE;
+$wgCachePages = false;
 
 # End of automatically generated settings.
 # Add more configuration options below.
