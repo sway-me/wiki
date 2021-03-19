@@ -70,7 +70,7 @@ release:
           - name: 'swayme/wiki'
       " > .releaserc.yml
   script:
-    - docker build --quiet --tag swayme/wiki .
+    - docker build --quiet --tag swayme/wiki . &&  docker push swayme/wiki
     - npx semantic-release
 #    - ssh -o StrictHostKeyChecking=no sway@$IP -p $PORT  docker stack deploy -c infrastructure/wiki/beta.yml beta
     - ssh -o StrictHostKeyChecking=no sway@$IP -p $PORT docker service update --image swayme/wiki  beta_wiki
