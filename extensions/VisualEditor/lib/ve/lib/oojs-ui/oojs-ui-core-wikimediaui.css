@@ -144,7 +144,7 @@
   padding-left: 2.14285714em;
 }
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
-  color: #202122;
+  color: slategray;
 }
 .oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover {
   background-color: rgba(0, 24, 73, 0.02745098);
@@ -259,9 +259,9 @@
   background-color: #919fb9;
 }
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
-  background-color: #f8f9fa;
-  color: #202122;
-  border-color: #a2a9b1;
+  background-color: white;
+  color: slategray;
+  box-shadow: var(--light-shadow);
 }
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover {
   background-color: #fff;
@@ -1473,7 +1473,7 @@ body:not( :-moz-handler-blocked ) .oo-ui-fieldsetLayout {
   background-color: #fff;
 }
 .oo-ui-dropdownInputWidget.oo-ui-widget-enabled select {
-  color: #202122;
+  color: slategray;
   -webkit-transition: border-color 100ms, box-shadow 100ms;
   -moz-transition: border-color 100ms, box-shadow 100ms;
   transition: border-color 100ms, box-shadow 100ms;
@@ -1844,7 +1844,7 @@ body:not( :-moz-handler-blocked ) .oo-ui-fieldsetLayout {
   color: #36c;
 }
 .oo-ui-menuOptionWidget.oo-ui-widget-enabled.oo-ui-optionWidget {
-  color: #202122;
+  color: slategray;
 }
 
 .oo-ui-menuSectionOptionWidget {
@@ -1923,7 +1923,7 @@ body:not( :-moz-handler-blocked ) .oo-ui-fieldsetLayout {
 }
 .oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle {
   background-color: #f8f9fa;
-  color: #202122;
+  color: slategray;
   -webkit-transition: background-color 100ms, border-color 100ms, box-shadow 100ms;
   -moz-transition: background-color 100ms, border-color 100ms, box-shadow 100ms;
   transition: background-color 100ms, border-color 100ms, box-shadow 100ms;
