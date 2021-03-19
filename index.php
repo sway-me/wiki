@@ -1,4 +1,6 @@
 <?php // For broken web servers: ><pre>
+//$url1 = $_SERVER['REQUEST_URI'];
+//header("Refresh: 3; URL=$url1");
 
 // If you are reading this in your web browser, your server is probably
 // not configured correctly to run PHP applications!
