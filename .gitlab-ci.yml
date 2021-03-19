@@ -58,6 +58,8 @@ release:
       echo "
       branches:
         - master
+        - name: development
+          prerelease: true
         - name: beta
           prerelease: true
       plugins:
