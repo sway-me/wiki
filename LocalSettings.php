@@ -139,12 +139,17 @@ $wgDiff3 = "/usr/bin/diff3";
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'vector', 'monobook':
-$wgDefaultSkin = "vector";
 
 # Enabled skins.
 # The following skins were automatically enabled:
+wfLoadSkin( 'MinervaNeue' );
 wfLoadSkin( 'Vector' );
 
+if (preg_match("/(mobile|webos|opera mini|android|blackberry|tablet)/i", $_SERVER['HTTP_USER_AGENT'])) {
+    $wgDefaultSkin = 'minerva';
+} else{
+    $wgDefaultSkin = 'vector';
+}
 
 # End of automatically generated settings.
 # Add more configuration options below.
