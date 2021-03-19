@@ -32,34 +32,12 @@ push_to_beta:
   stage: push
   before_script:
     - *push-before
-  script:
-    - git checkout beta
-    - git reset --hard origin/development
-    - git clean -f -d
-    - git pull --allow-unrelated-histories
-    - git push -u origin beta
-  rules:
-    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'development'
-
-release:
-  stage: release
-  variables:
-    DOCKER_TLS_CERTDIR: "/certs"
-  image: docker:19.03.12
-  services:
-    - docker:19.03.12-dind
-  before_script:
-    - *push-before
-    - git checkout beta
-    - git pull
     - apt-get install npm -qy || apk add npm
     - npm i --quiet -g  @semantic-release/gitlab semantic-release-docker semantic-release
     - |
       echo "
       branches:
         - master
-        - name: development
-          prerelease: true
         - name: beta
           prerelease: true
       plugins:
@@ -70,12 +48,52 @@ release:
           - name: 'swayme/wiki'
       " > .releaserc.yml
   script:
+    - git reset --hard origin/development
+    - git clean -f -d
+    - git pull --allow-unrelated-histories
+    - git push -u origin beta
     - docker build --quiet --tag swayme/wiki . 
     - npx semantic-release
 #    - ssh -o StrictHostKeyChecking=no sway@$IP -p $PORT  docker stack deploy -c infrastructure/wiki/beta.yml beta
     - ssh -o StrictHostKeyChecking=no sway@$IP -p $PORT docker service update --image swayme/wiki  beta_wiki
   rules:
-    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'development'
+    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'beta'
+
+#release:
+#  stage: release
+#  variables:
+#    DOCKER_TLS_CERTDIR: "/certs"
+#  image: docker:19.03.12
+#  services:
+#    - docker:19.03.12-dind
+#  before_script:
+#    - *push-before
+#    - git checkout beta
+#    - git pull
+#    - apt-get install npm -qy || apk add npm
+#    - npm i --quiet -g  @semantic-release/gitlab semantic-release-docker semantic-release
+#    - |
+#      echo "
+#      branches:
+#        - master
+#        - name: development
+#          prerelease: true
+#        - name: beta
+#          prerelease: true
+#      plugins:
+#        - '@semantic-release/commit-analyzer'
+#        - '@semantic-release/release-notes-generator'
+#        - '@semantic-release/gitlab'
+#        - - 'semantic-release-docker'
+#          - name: 'swayme/wiki'
+#      " > .releaserc.yml
+#  script:
+#    - docker build --quiet --tag swayme/wiki . 
+#    - npx semantic-release
+##    - ssh -o StrictHostKeyChecking=no sway@$IP -p $PORT  docker stack deploy -c infrastructure/wiki/beta.yml beta
+#    - ssh -o StrictHostKeyChecking=no sway@$IP -p $PORT docker service update --image swayme/wiki  beta_wiki
+#  rules:
+#    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CI_COMMIT_BRANCH == 'beta'
 
 .load_performance:
   stage: uat
