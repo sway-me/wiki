@@ -255,7 +255,7 @@ class MinervaTemplate extends BaseTemplate {
 			'searchButton' => Html::rawElement( 'button', [
 				'id' => 'searchIcon',
 				'class' => MinervaUI::iconClass(
-					'search-base20', 'element', 'skin-minerva-search-trigger', 'wikimedia'
+					'search-invert', 'element', 'skin-minerva-search-trigger', 'wikimedia'
 				)
 			], wfMessage( 'searchbutton' )->escaped() ),
 			'userNotificationsHTML' => $data['userNotificationsHTML'] ?? '',
