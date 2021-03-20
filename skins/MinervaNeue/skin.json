@@ -66,14 +66,14 @@
 			"value": {
 				"base": false,
 				"beta": false,
-				"amc": true
+				"amc": false
 			}
 		},
 		"MinervaPersonalMenu": {
 			"value": {
 				"base": false,
 				"beta": false,
-				"amc": true
+				"amc": false
 			}
 		},
 		"MinervaHistoryInPageActions": {
@@ -87,14 +87,14 @@
 			"value": {
 				"base": false,
 				"beta": false,
-				"amc": true
+				"amc": false
 			}
 		},
 		"MinervaShowCategoriesButton": {
 			"value": {
 				"base": false,
 				"beta": true,
-				"amc": true
+				"amc": false
 			}
 		},
 		"MinervaPageIssuesNewTreatment": {
@@ -292,8 +292,7 @@
 				}
 			},
 			"images": {
-				"toast.mw-notification-type-error,.mw-notification.mw-notification-type-error":
-					"resources/skins.minerva.content.styles.images/error.svg",
+				"toast.mw-notification-type-error,.mw-notification.mw-notification-type-error": "resources/skins.minerva.content.styles.images/error.svg",
 				"input.search,.mw-ui-icon-minerva-magnifying-glass:before": "resources/skins.minerva.content.styles.images/magnifying-glass.svg",
 				"a.external": {
 					"file": {
@@ -310,7 +309,7 @@
 				"desktop"
 			],
 			"useDataURI": false,
-			"defaultColor": "#54595d",
+			"defaultColor": "white",
 			"variants": [],
 			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}-base20:before",
 			"icons": [
@@ -329,7 +328,7 @@
 		"skins.minerva.overflow.icons": {
 			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
 			"useDataURI": false,
-			"defaultColor": "slategray",
+			"defaultColor": "white",
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"icons": [
 				"ellipsis",
@@ -339,26 +338,16 @@
 				"listBullet",
 				"logoWikidata",
 				"quotes",
-				"userTalk",
-				"userAvatar",
 				"userAvatarOutline",
+				"userTalk",
 				"userGroup"
-			]
-		},
-		"skins.minerva.overflow.icons": {
-			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}-invert:before",
-			"useDataURI": false,
-			"defaultColor": "white",
-			"class": "ResourceLoaderOOUIIconPackModule",
-			"icons": [
-				"userAvatarOutline"
 			]
 		},
 		"skins.minerva.icons.wikimedia": {
 			"selectorWithVariant": ".mw-ui-icon-wikimedia-{name}-{variant}:before",
 			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}-base20:before, .mw-ui-background-icon-{name}",
 			"useDataURI": false,
-			"defaultColor": "slategray",
+			"defaultColor": "slategrey",
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"icons": [
 				"edit",
@@ -367,10 +356,21 @@
 				"language",
 				"menu",
 				"search",
-				"userAvatar",
 				"star",
 				"halfStar",
 				"unStar"
+			]
+		},
+		"skins.minerva.icons.wikimedia": {
+			"selectorWithVariant": ".mw-ui-icon-wikimedia-{name}-{variant}:before",
+			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}-base20:before, .mw-ui-background-icon-{name}",
+			"useDataURI": false,
+			"defaultColor": "white",
+			"class": "ResourceLoaderOOUIIconPackModule",
+			"icons": [
+				"userAvatar",
+				"search",
+				"menu"
 			]
 		},
 		"skins.minerva.icons.images.scripts": {
@@ -465,14 +465,16 @@
 		"skins.minerva.personalMenu.icons": {
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
-			"defaultColor": "#54595d",
-			"icons": [ "markup" ],
+			"defaultColor": "slategray",
+			"icons": [
+				"markup"
+			],
 			"variants": []
 		},
 		"skins.minerva.mainMenu.advanced.icons": {
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
-			"defaultColor": "#54595d",
+			"defaultColor": "white",
 			"icons": [
 				"recentChanges",
 				"specialPages",
@@ -484,7 +486,7 @@
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"variants": [],
 			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
-			"defaultColor": "#54595d",
+			"defaultColor": "white",
 			"useDataURI": false,
 			"icons": [
 				"die",

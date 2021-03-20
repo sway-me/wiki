@@ -235,6 +235,7 @@ class MinervaTemplate extends BaseTemplate {
 		$hasHeadingHolder = $internalBanner || $preBodyHtml || isset( $data['pageActionsMenu'] );
 		$hasPageActions = $this->hasPageActions( $data['skin']->getContext() );
 
+		$beta = str_replace('"', "", getenv("BETA"));
 		// prepare template data
 		$templateData = [
 			'banners' => $data['banners'],
@@ -245,7 +246,8 @@ class MinervaTemplate extends BaseTemplate {
 			'headelement' => $data[ 'headelement' ],
 			'main-menu-tooltip' => $this->getMsg( 'mobile-frontend-main-menu-button-tooltip' ),
 			'siteheading' => $data['footer-site-heading-html'],
-			'mainPageURL' => Title::newMainPage()->getLocalURL(),
+			'wikiURL' => Title::newMainPage()->getLocalURL(),
+            'homeURL' => 'https://'.$beta.'swayme.xyz',
 			'userNavigationLabel' => wfMessage( 'minerva-user-navigation' ),
 			// A button when clicked will submit the form
 			// This is used so that on tablet devices with JS disabled the search button

@@ -81,6 +81,7 @@ final class BuilderUtil {
 		$showMobileOptions ?
 			$definitions->insertMobileOptionsItem( $group ) :
 			$definitions->insertPreferencesItem( $group );
+                        $definitions->insertAuthMenuItem( $group );
 
 		return $group;
 	}
