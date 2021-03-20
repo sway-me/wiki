@@ -63,7 +63,7 @@ final class UserMenuDirector {
 				'checkboxID' => 'minerva-user-menu-checkbox',
 				'toggleID' => 'minerva-user-menu-toggle', // See skin.mustache too.
 				'toggleClass' => MinervaUI::iconClass(
-					'userAvatarOutline-invert', 'element'
+					'userAvatarOutline', 'element'
 				),
 				'listID' => $group->getId(),
 				'listClass' => 'minerva-user-menu-list toggle-list__list--drop-down', // See ToggleList/*.less.

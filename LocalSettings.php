@@ -152,6 +152,7 @@ if (preg_match("/(mobile|webos|opera mini|android|blackberry|tablet)/i", $_SERVE
 }
 
 $wgCachePages = getenv("DEBUG");
+$wgGroupPermissions['*']['edit'] = false;
 
 # End of automatically generated settings.
 # Add more configuration options below.
