@@ -42,6 +42,7 @@ class MinervaUI {
 		if ( $iconName ) {
 			$modifiers .= ' mw-ui-icon-' . $iconPrefix . '-' . $iconName;
 		}
+
 		return $base . ' ' . $modifiers . ' ' . $additionalClassNames;
 	}
 

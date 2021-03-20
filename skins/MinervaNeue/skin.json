@@ -329,7 +329,7 @@
 		"skins.minerva.overflow.icons": {
 			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}:before",
 			"useDataURI": false,
-			"defaultColor": "#54595d",
+			"defaultColor": "slategray",
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"icons": [
 				"ellipsis",
@@ -339,17 +339,26 @@
 				"listBullet",
 				"logoWikidata",
 				"quotes",
-				"userAvatarOutline",
 				"userTalk",
 				"userAvatar",
+				"userAvatarOutline",
 				"userGroup"
+			]
+		},
+		"skins.minerva.overflow.icons": {
+			"selectorWithoutVariant": ".mw-ui-icon-minerva-{name}-invert:before",
+			"useDataURI": false,
+			"defaultColor": "white",
+			"class": "ResourceLoaderOOUIIconPackModule",
+			"icons": [
+				"userAvatarOutline"
 			]
 		},
 		"skins.minerva.icons.wikimedia": {
 			"selectorWithVariant": ".mw-ui-icon-wikimedia-{name}-{variant}:before",
 			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}-base20:before, .mw-ui-background-icon-{name}",
 			"useDataURI": false,
-			"defaultColor": "#54595d",
+			"defaultColor": "slategray",
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"icons": [
 				"edit",
