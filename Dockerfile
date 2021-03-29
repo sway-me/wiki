@@ -83,4 +83,3 @@ COPY . .
 RUN chown -R www-data:www-data extensions skins cache images;
 
 CMD ["apache2-foreground"]
-
