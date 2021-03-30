@@ -65,6 +65,9 @@ RUN set -eux; \
 	} > "$APACHE_CONFDIR/conf-available/short-url.conf"; \
 	a2enconf short-url
 
+RUN a2enmod headers
+RUN echo "Header unset Upgrade" >> /etc/apache2/apache2.conf
+
 
 # set recommended PHP.ini settings
 # see https://secure.php.net/manual/en/opcache.installation.php
